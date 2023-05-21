@@ -1,4 +1,5 @@
 import Logo from './assets/Logo.svg'
+import Hamburger_menu from './assets/icon-hamburger-menu.svg'
 
 export function NavList(props) {
     return <ul>
@@ -12,9 +13,15 @@ export function NavList(props) {
 
 }
 
+export function NavMenu(props) {
+    return <img className="menu-icon" src={Hamburger_menu} style={{height: "33%"}} alt="menu icon"/>
+
+}
+
 export function Nav(props) {
     return <nav>
-        <img src={Logo}  alt="Little Lemon Logo"/>
+        <img className="logo" src={Logo}  alt="Little Lemon Logo"/>
         <NavList />
+        <NavMenu />
     </nav>
 }
