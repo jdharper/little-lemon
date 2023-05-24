@@ -18,7 +18,15 @@
 body {
   margin: 0;
   font-family: var(--font-karla);
-  padding: 0 20px;
+
+  /* display width   left & right padding
+     -------------   ---------------------
+     < 200px         0
+     200px to 400px  0 to 20px
+     200px to 400px  0 to 20px
+     > 400px         20px
+*/
+  padding: 0 min(10% - 20px, 20px);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,7 +50,7 @@ code {
 
 nav, .hero, .specials {
   --display-width: min(var(--display-width-lg), 2 * (var(--display-width-lg) - var(--display-width-sm)) + 50%);
-  --lr-padding: max(20px, (100% - var(--display-width))/2);
+  --lr-padding: max(max(5px, 7.5% - 10px), (100% - var(--display-width))/2);
   padding-left: var(--lr-padding);
   padding-right: var(--lr-padding);
 }
@@ -204,6 +212,10 @@ h1 {
   }
 }
 
+.specials {
+  display: flex;
+  flex-direction: column;
+}
 .specials .specials-header {
   display: flex;
   flex-direction: row;
@@ -211,6 +223,171 @@ h1 {
   align-items: center;
   /*border: 1px solid red;*/
 }
+
+@media only screen and (max-width: 575px) {
+  .specials .specials-header {
+    flex-direction: column;
+  }  
+}
+
+.specials .card-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /*border: 1px solid red;*/
+}
+
+.card {
+  width: 30%;
+  max-width: 280px;
+/*  display: flex;
+  flex-direction: column;
+  */
+  display: grid;
+  grid-template-areas:
+    "i i"
+    "t p"
+    "d d"
+    "o o";
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: min(195px, 20vi) 26px auto auto;
+  border-radius: 8px 8px 0 0;
+  background-color: #eeeeee;
+  margin-top: 20px;
+  /*border: 1px solid red;*/
+}
+
+
+.card img {
+  grid-area: i;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .specials .card-block {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 400px) {
+  .specials .card-block {
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+    max-width: unset;
+    grid-template-areas:
+    "i t p"
+    "i d d"
+    "i o o";
+    grid-template-columns: 35% auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 10px;
+    border-radius: 8px 0 0 8px;
+
+  }
+
+  .card img {
+    margin-right: 30px;
+    margin-bottom: 10px;
+    border-radius: 8px 0 0 8px;
+
+  }
+}
+
+@media only screen and (max-width: 399px) and (min-width: 300px){
+  .card {
+    width: 100%;
+    max-width: unset;
+    grid-template-areas:
+    "i t"
+    "i p"
+    "d d"
+    "o o";
+    grid-template-columns: 50% auto;
+    grid-template-rows: 26px auto auto auto;
+    column-gap: 10px;
+    border-radius: 8px 0 0 8px;
+
+  }
+  .card img {
+    max-width: unset;
+    min-width: unset;
+    margin-bottom: 10px;
+    border-radius: 8px 0 0 8px;
+  }
+  .card h1 {
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: 299px) {
+  .card {
+    width: 100%;
+    grid-template-rows: auto 26px auto auto;
+  }
+}
+
+
+
+
+/*
+
+.card .description {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+*/
+@media only screen and (max-width: 700px) {
+  .card .title {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+.card h1 {
+  grid-area: t;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.card .price {
+  grid-area: p;
+  font-size: 14pt;
+  font-weight: regular;
+  color: hsl(19, 78%, 55%);
+  text-align: right;
+}
+
+.card p {
+  grid-area: d;
+  margin: 20px 0;
+}
+
+.card h2 {
+  grid-area: o;
+  font: var(--font-karla);
+  font-size: 12pt;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: auto;  /* Align to bottom of flex container. */
+}
+
+
 
 a[role=button] {
   padding: 8px 16px;
