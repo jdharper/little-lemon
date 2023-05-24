@@ -11,7 +11,7 @@ export function Card(props) {
                 <p>
                     { description }
                 </p>
-                <h2>Order a delivery</h2>
+                <p className="order">Order a delivery</p>
         </div>
     </>
 }
