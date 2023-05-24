@@ -1,5 +1,4 @@
-
-
+import Scooter from './assets/scooter.png'
 export function Card(props) {
     const { img, name, price, description } = props
 
@@ -11,7 +10,7 @@ export function Card(props) {
                 <p>
                     { description }
                 </p>
-                <p className="order">Order a delivery</p>
+                <p className="order">Order a delivery<img src={Scooter} alt="Scooter Icon"/></p>
         </div>
     </>
 }

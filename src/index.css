@@ -258,7 +258,7 @@ h1 {
   /*border: 1px solid red;*/
 }
 
-.card img {
+.card > img {
   grid-area: i;
   width: 100%;
   object-fit: cover;
@@ -266,13 +266,13 @@ h1 {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
   .specials .card-block {
     flex-direction: column;
   }
 }
 
-@media only screen and (max-width: 600px) and (min-width: 400px) {
+@media only screen and (max-width: 650px) and (min-width: 450px) {
   .specials .card-block {
     flex-direction: column;
   }
@@ -298,7 +298,7 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 399px) and (min-width: 300px){
+@media only screen and (max-width: 449px) and (min-width: 300px){
   .card {
     width: 100%;
     max-width: unset;
@@ -379,14 +379,22 @@ h1 {
 
 .card .order {
   grid-area: o;
+  display: flex;
   font: var(--font-karla);
   font-size: 12pt;
   font-weight: bold;
   margin-top: 40px;
   margin-bottom: 20px;
   margin-top: auto;  /* Align to bottom of flex container. */
+  /*border: 1px solid red;*/
 }
 
+.card .order img {
+  max-width: 1.5em;
+  max-height: 1.5em;
+  object-fit: cover;
+  margin-left: max(10px, 10%);
+}
 
 
 a[role=button] {
