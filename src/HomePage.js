@@ -1,17 +1,9 @@
-import { Header } from './Header.js'
-import { Nav } from './Nav.js'
-import { Main } from './Main.js'
-import { Footer } from './Footer.js'
+import { Hero } from './Hero.js'
+import { Specials } from './Specials.js'
 
 export function HomePage() {
     return <>
-    <Header>
-    </Header>
-    <Nav>
-    </Nav>
-    <Main>
-    </Main>
-    <Footer>
-    </Footer>
+        <Hero />
+        <Specials />
     </>
 }
