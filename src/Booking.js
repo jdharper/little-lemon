@@ -96,7 +96,6 @@ export function BookingForm(props) {
    //style={{display: 'grid', max_width: '200px', gap: '20px'}}
    console.log("submitAttempted =", submitAttempted)
    return  <div className="booking">
-      <h1>Book Now</h1>
       <form className='booking-form' onSubmit={submit} >
          <label htmlFor="name">Name<sup>*</sup></label>
          <Field validationMsg="Name Required" valid={validateName()} touched={submitAttempted}>
@@ -137,11 +136,18 @@ export function BookingForm(props) {
       </div>
 }
 
+export function BookingHero(props) {
+   return <section className="hero booking" style={{marginBottom: 0}}>
+   <div className="hero-left">
+      <h1 style={{marginBottom: "10px"}}>Book Now</h1>
+      <p>Experience vibrant Mediterranean cuisine. Reserve your spot, where every bite is a celebration of taste and culture.</p>
+   </div>
+   <img className="hero-right" alt="Reserved Table" />
+   </section>
+}
 export function BookingPage(props) {
-    return  <>
-    <main>
+    return <>
+      <BookingHero/>
       <BookingForm {...props}/>
-    </main>
-
-    </>
+   </>
 }

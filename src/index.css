@@ -48,7 +48,7 @@ code {
   /*border: solid 1px red;*/
 }
 
-nav, .hero, .specials, .booking {
+nav, .hero, .specials, .booking-form {
   --display-width: min(var(--display-width-lg), 2 * (var(--display-width-lg) - var(--display-width-sm)) + 50%);
   --lr-padding: max(max(5px, 7.5% - 10px), (100% - var(--display-width))/2);
   padding-left: var(--lr-padding);
@@ -227,7 +227,7 @@ h1 {
 @media only screen and (max-width: 575px) {
   .specials .specials-header {
     flex-direction: column;
-  } 
+  }
 }
 
 .specials .card-block {
@@ -413,6 +413,47 @@ input[type="submit"][invalid=true], button[invalid=true], a[role=button][invalid
   color: #888;
   background-color: white;
   border: 1px solid #888;
+}
+
+.hero.booking h1 {
+  margin-top: 20px;
+}
+
+.hero.booking img.hero-right {
+  width: 570px;
+  object-fit: cover;
+  content: url(../public/reserved_table.jpg);
+}
+
+@media only screen and (max-width: 1000px) {
+  .hero.booking img.hero-right {
+    width: calc(100% - 266px);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .hero.booking img.hero-right {
+    content: url(../public/reserved_table_sm.jpg);
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .hero.booking h1 {
+    text-align: center;
+  }
+  .hero.booking p {
+    text-align: center;
+  }
+  .hero.booking img.hero-right {
+    width: 60%;
+    min-width: 160px;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  .hero.booking img.hero-right {
+    /*display: none;*/
+  }
 }
 
 .booking-form {
