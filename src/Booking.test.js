@@ -9,12 +9,12 @@ test ('Renders the BookingForm heading', () => {
 
 test ('<select> time element has availableTimes', () => {
     render(<BookingForm availableTimes={["17:00"]}/>)
-    const timeElement = screen.getByLabelText("Choose time")
+    const timeElement = screen.getByLabelText("Choose time*")
     const timeOptions = timeElement.children;
-    expect(timeOptions.length).toBe(1);
-    for (const child of timeOptions ) {
-        expect(child.tagName).toBe('OPTION')
-        expect(child.textContent).toBe('17:00')
-    }
+    expect(timeOptions.length).toBe(2);
+    expect(timeOptions[0].tagName).toBe('OPTION')
+    expect(timeOptions[0].textContent).toBe('-- Select a time --')
+    expect(timeOptions[1].tagName).toBe('OPTION')
+    expect(timeOptions[1].textContent).toBe('17:00')
 })
 

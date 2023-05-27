@@ -48,7 +48,7 @@ code {
   /*border: solid 1px red;*/
 }
 
-nav, .hero, .specials {
+nav, .hero, .specials, .booking {
   --display-width: min(var(--display-width-lg), 2 * (var(--display-width-lg) - var(--display-width-sm)) + 50%);
   --lr-padding: max(max(5px, 7.5% - 10px), (100% - var(--display-width))/2);
   padding-left: var(--lr-padding);
@@ -227,7 +227,7 @@ h1 {
 @media only screen and (max-width: 575px) {
   .specials .specials-header {
     flex-direction: column;
-  }  
+  } 
 }
 
 .specials .card-block {
@@ -397,17 +397,63 @@ h1 {
 }
 
 
-a[role=button] {
+input[type=submit], button, a[role=button] {
   padding: 8px 16px;
   text-decoration: none;
   background-color: var(--primary-yellow);
   color: black;
   justify-content: center;
   border-radius: 12px;
+  border: none;
+  font-family: var(--font-karla);
+  font-size: 12pt;
 }
 
+input[type="submit"][invalid=true], button[invalid=true], a[role=button][invalid=true] {
+  color: #888;
+  background-color: white;
+  border: 1px solid #888;
+}
 
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-top: 20px
+}
 
+.formField {
+  display: flex;
+   flex-direction: column;
+}
+.formField .validationMsg {
+  visibility: hidden;
+  color: #c00;
+  font-size: 11pt;
+  margin-bottom: 8px;
+}
+
+.formField.invalid .validationMsg {
+  visibility: visible;
+}
+
+.formField.invalid > *:first-child {
+  border-color: #c00;
+}
+
+.booking form > label {
+  width: 10em;
+}
+
+.booking form input, .booking form select {
+  max-width: 240px;
+  box-sizing: border-box;
+}
+
+.booking form input[type=submit] {
+  margin-top: 40px;
+  box-sizing: border-box;
+}
 
 
 
