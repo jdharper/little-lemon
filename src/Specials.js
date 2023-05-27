@@ -23,7 +23,7 @@ export function Specials() {
             <a href="#online-menu" role="button">Online Menu</a>
         </div>
         <div className="card-block">
-            { specials.map((s) => { return (<Card { ... s} />); }) }
+            { specials.map((s) => { return (<Card key={s.name} { ... s} />); }) }
         </div>
         </section>
 

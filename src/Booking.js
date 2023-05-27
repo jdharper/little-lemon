@@ -14,9 +14,8 @@ function Field(props) {
 
    const [ touched, setTouched ] = useState( props.touched === undefined ? false : (!!props.touched))
    useEffect(() => {
-      console.log("fieldId =", fieldId, "props.touched =", props.touched)
       setTouched(props.touched)
-   }, [fieldId, props.touched])
+   }, [props.touched])
    const classNames = "formField" + (valid || !touched || disabled ? "" : " invalid")
 
    function doBlur(e) {
@@ -31,7 +30,9 @@ function Field(props) {
 }
 
 export function BookingForm(props) {
-   const { availableTimes, dispatchAvailableTimes, submitForm } = props
+   const { dispatchAvailableTimes, submitForm } = props
+
+   const availableTimes = props.availableTimes || []
 
    const [ booking, setBooking ] = useState({
       name: "",
@@ -46,7 +47,7 @@ export function BookingForm(props) {
    function change(e) {
       e.preventDefault()
       const { name, value } = e.target
-      console.log('change', name, '=', value)
+      //console.log('change', name, '=', value)
 
       const newBooking = { ...booking, [name]: value }
 
@@ -81,7 +82,7 @@ export function BookingForm(props) {
 
    function submit(e) {
       e.preventDefault();
-      console.log("doSetSubmitAttmped")
+      //console.log("doSetSubmitAttmped")
       setSubmitAttempted(true)
       if (formValid()) {
          if (submitForm !== undefined)
@@ -90,11 +91,11 @@ export function BookingForm(props) {
    }
 
 
-   console.log("validateTime =", validateTime(), booking.timeTouch, booking.time, booking.time.length)
-   console.log("time =", booking.time, booking.timeTouch)
+   //console.log("validateTime =", validateTime(), booking.timeTouch, booking.time, booking.time.length)
+   //console.log("time =", booking.time, booking.timeTouch)
 
    //style={{display: 'grid', max_width: '200px', gap: '20px'}}
-   console.log("submitAttempted =", submitAttempted)
+   //console.log("submitAttempted =", submitAttempted)
    return  <div className="booking">
       <form className='booking-form' onSubmit={submit} >
          <label htmlFor="name">Name<sup>*</sup></label>
@@ -123,7 +124,7 @@ export function BookingForm(props) {
          </Field>
          <label htmlFor="guests">Number of guests<sup>*</sup></label>
          <Field validationMsg="Select between 1 and 10 guests." valid={validateGuests()} touched={submitAttempted}>
-            <input type="number" placeholder="Number of Guests" min="1" max="10" id="guests" name="guests" value={booking.guests} onChange={change} touch={submitAttempted}/>
+            <input type="number" placeholder="Number of Guests" min="1" max="10" id="guests" name="guests" value={booking.guests} onChange={change}/>
          </Field>
          <label htmlFor="occasion">Occasion</label>
          <select id="occasion" value={booking.occasion}  name="occasion" onChange={change}>
