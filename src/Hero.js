@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import hero_img from './assets/restaurantfood.jpg'
 
 export function Hero(props) {
@@ -6,7 +7,7 @@ export function Hero(props) {
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>
             <p>We are a family owned Mediteranean restaurant, focused on traditional recipes served with a modern twist.</p>
-            <a href="#reserve-table" role="button">Reserve a Table</a>
+            <Link to="/booking" role="button" aria-label="On Click">Reserve a Table</Link>
         </div>
         <img className="hero-right" src={hero_img} alt="deli sandwhiches" />
     </section>

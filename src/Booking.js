@@ -132,7 +132,7 @@ export function BookingForm(props) {
             <option>Birthday</option>
             <option>Anniversary</option>
          </select>
-         <input invalid={formValid() ? "false" : "true"} type="submit" value="Make Your Reservation"/>
+         <input invalid={formValid() ? "false" : "true"} type="submit" value="Make Your Reservation" aria-label="On Click"/>
       </form>
       </div>
 }

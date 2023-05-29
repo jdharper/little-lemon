@@ -5,6 +5,7 @@
   --font-markazi: 'Markazi Text', serif;
   --primary-green: #495e57;
   --primary-yellow: #f4ce14;
+  --secondary-beige: #FBDABB;
   --display-width-sm: 800px;
   --display-width-lg: 1000px;
 
@@ -48,7 +49,7 @@ code {
   /*border: solid 1px red;*/
 }
 
-nav, .hero, .specials, .booking-form {
+footer, nav, .hero, .specials, .booking-form, .testimonials {
   --display-width: min(var(--display-width-lg), 2 * (var(--display-width-lg) - var(--display-width-sm)) + 50%);
   --lr-padding: max(max(5px, 7.5% - 10px), (100% - var(--display-width))/2);
   padding-left: var(--lr-padding);
@@ -60,11 +61,14 @@ nav, .hero, .specials, .booking-form {
 }
 
 nav {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   height: 85px;
   justify-content: space-between;
-  /*border: solid 1px red;*/
+  background-color: white;
+  /*border-bottom: solid 2px var(--primary-green)*/
 }
 
 nav img {
@@ -230,7 +234,7 @@ h1 {
   }
 }
 
-.specials .card-block {
+.specials .card-block, .testimonials .card-block {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -255,7 +259,7 @@ h1 {
   border-radius: 8px 8px 0 0;
   background-color: #eeeeee;
   margin-top: 20px;
-  /*border: 1px solid red;*/
+  border: 1px solid #ccc;
 }
 
 .card > img {
@@ -267,13 +271,13 @@ h1 {
 }
 
 @media only screen and (max-width: 650px) {
-  .specials .card-block {
+  .specials .card-block, .testimonials .card-block {
     flex-direction: column;
   }
 }
 
 @media only screen and (max-width: 650px) and (min-width: 450px) {
-  .specials .card-block {
+  .specials .card-block,  .testimonials .card-block {
     flex-direction: column;
   }
   .card {
@@ -290,7 +294,7 @@ h1 {
 
   }
 
-  .card img {
+  .card > img {
     margin-right: 30px;
     margin-bottom: 10px;
     border-radius: 8px 0 0 8px;
@@ -299,7 +303,7 @@ h1 {
 }
 
 @media only screen and (max-width: 449px) and (min-width: 300px){
-  .card {
+  .specials .card {
     width: 100%;
     max-width: unset;
     grid-template-areas:
@@ -496,5 +500,190 @@ input[type="submit"][invalid=true], button[invalid=true], a[role=button][invalid
   box-sizing: border-box;
 }
 
+.testimonials {
+  margin-top: 50px;
+}
+
+.testimonials h1 {
+  text-align: center;
+}
+.stars {
+  display: grid;
+  gap: 4%;
+  grid-template-columns: repeat(5, 1fr);
+  /*border: 1px solid red;*/
+}
+
+.testimonials .card {
+  width: 22%;
+  max-width: 280px;
+/*  display: flex;
+  flex-direction: column;
+  */
+  display: grid;
+  grid-template-areas:
+    "s s"
+    "p n"
+    "d d";
+  grid-template-columns: min(80px, 10vw) 1fr;
+  grid-template-rows: 20px min(80px, 10vw) auto;
+  border-radius: 8px 8px 0 0;
+  background-color: #eeeeee;
+  margin-top: 20px;
+  padding-top: 5px;
+  row-gap: 20px;
+  /*border: 1px solid red;*/
+}
 
 
+.testimonials .card .stars {
+  grid-area: s;
+  width: 120px;
+  height: 20px;
+}
+
+.testimonials .card > span {
+  grid-area: n;
+  font-weight: bold;
+  text-align: center;
+  align-self: center;
+  /*border: 1px solid red;*/
+}
+
+.testimonials .card > img {
+  grid-area: p;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 1px solid #bbb;
+}
+
+.testimonials .card > p {
+  margin: 0;
+  justify-self: start;
+  align-self: start;
+}
+
+
+@media only screen and (max-width: 650px) {
+  .specials .card-block, .testimonials .card-block {
+    flex-direction: column;
+  }
+  .testimonials .card {
+    border-radius: 8px;
+    width: 100%;
+    max-width: unset;
+    grid-template-areas:
+    "s s"
+    "p d"
+    "n d";
+    grid-template-columns: 90px 5fr;
+    grid-template-rows: auto 90px auto;
+    column-gap: 20px;
+    /*border: 1px solid red;*/
+  }
+
+  .testimonials .card > span {
+    align-self: unset;
+    /*border: 1px solid red;*/
+  }
+}
+@media only screen and (max-width: 349px) {
+  .testimonials .card {
+      grid-template-areas:
+    "s"
+    "p"
+    "n"
+    "d";
+    grid-template-columns: auto;
+    grid-template-rows: auto 90px auto auto auto;
+    justify-items: center;
+  }
+  .testimonials .card > span {
+    text-align: left;
+  }
+
+  .testimonials .card > img {
+    width: 90px;
+  }
+
+  .testimonials .card > p {
+    margin: 0;
+  }
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-areas: "i c s";
+  margin-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  column-gap: 10px;
+  justify-content: space-between;
+  background-color: var(--secondary-beige);
+}
+
+footer img {
+  grid-area: i;
+  width: max(50px, min(15vw, 100px));
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 699px) {
+  footer {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 10px;
+    grid-template-areas: "i c"
+                         "i s";
+
+  }
+
+  footer img {
+    grid-area: i;
+    width: max(50px, min(30vw, 150px));
+    object-fit: contain;
+  }
+  
+}
+
+@media only screen and (max-width: 400px) {
+  footer {
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(3, auto);
+    row-gap: 25px;
+    grid-template-areas: "c"
+                         "s"
+                         "i";
+  } 
+}
+
+footer .contact {
+  grid-area: c;
+}
+
+footer .social {
+  grid-area: s;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  width: 200px;
+  column-gap: 10px;
+}
+
+.social-links a {
+  width: 25px;
+  height: 25px;
+}
+
+.social-links img {
+  height: 25px;
+  width: 25px
+}
+
+footer p {
+  margin-bottom: 5px;
+}
