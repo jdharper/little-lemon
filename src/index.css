@@ -49,7 +49,7 @@ code {
   /*border: solid 1px red;*/
 }
 
-footer, nav, .hero, .specials, .booking-form, .testimonials {
+footer, nav, .hero, .specials, .booking-form, .testimonials, .confirm-booking {
   --display-width: min(var(--display-width-lg), 2 * (var(--display-width-lg) - var(--display-width-sm)) + 50%);
   --lr-padding: max(max(5px, 7.5% - 10px), (100% - var(--display-width))/2);
   padding-left: var(--lr-padding);
@@ -60,15 +60,19 @@ footer, nav, .hero, .specials, .booking-form, .testimonials {
   margin-bottom: 50px;
 }
 
-nav {
+header {
   position: sticky;
   top: 0;
+  padding-bottom: 5px;
+  background-color: white;
+  box-shadow: 0px 6px 6px -1px #888;
+}
+nav {
   display: flex;
   align-items: center;
   height: 85px;
   justify-content: space-between;
-  background-color: white;
-  /*border-bottom: solid 2px var(--primary-green)*/
+/*  border-bottom: solid 2px var(--primary-green) */
 }
 
 nav img {
@@ -96,16 +100,49 @@ nav img.menu-icon {
   height: 30px;
 }
 
+.show {
+  visibility: visible !important;
+}
+
+
 /* If display width < 800px switch to hamburger menu */
 @media only screen and (max-width: 800px) {
-  nav ul {
-    display: none;
+  nav div.blur {
+    position: fixed;
+    top: 93px;
+    right: 0;
+    background-color: #000a;
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    visibility: hidden;
   }
+  nav ul {
+    position: fixed;
+    background-color: var(--primary-yellow);
+    flex-direction: column;
+    top: 65px;
+    right: 20px;
+    row-gap: 10px;
+    width: unset;
+    min-width: unset;
+    padding: 30px;
+    visibility: hidden;
+    xxborder: 2px solid #444;
+    box-shadow: inset 1px 1px 1px 1px #fffe, inset -1px -1px 1px 1px #0008;
+  }
+
+  nav ul li {
+    font-weight: bold;
+    font-size: 18pt;
+  }
+
   nav img.logo {
     max-width: 75%;
   }
   nav img.menu-icon {
-    max-width: 20%;
+    max-width: 100%;
   }
 
 }
@@ -130,6 +167,7 @@ nav ul li a {
   --hero-top-pad: 20px;
   background: linear-gradient(var(--primary-green) 0, var(--primary-green) var(--hero-bg-height), white var(--hero-bg-height), white 100%);
   padding-top: var(--hero-top-pad);
+  margin-top: 8px;
   /*border: solid 1px red;*/
 }
 
@@ -499,6 +537,29 @@ input[type="submit"][invalid=true], button[invalid=true], a[role=button][invalid
   margin-top: 40px;
   box-sizing: border-box;
 }
+
+.confirm-booking {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+  text-align: center;
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.confirm-booking h1 {
+  font-family: var(--font-markazi);
+  font-size: min(48pt, 20vw);
+}
+.confirm-booking h2 {
+  font-family: var(--font-markazi);
+  font-size: min(36pt, 15vw);
+}
+
 
 .testimonials {
   margin-top: 50px;

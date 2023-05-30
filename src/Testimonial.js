@@ -19,8 +19,6 @@ const testimonials = [
 
 function TestCard(props) {
     const {portrait, name, text, rating} = props
-    console.log("props", props)
-    console.log("portrait", portrait)
     return <div className="card">
         <Stars n={rating} />
         <img src={portrait} alt="Portrait"/>
@@ -32,7 +30,6 @@ export function Testimonials(props) {
     const testCards = []
     for (let i = 0; i < 4; ++i) {
         const t = testimonials[i]
-        console.log("t =", t)
         /* portrait={t.portrait}*/
         testCards.push(<TestCard key={i} {...t} />)
     }

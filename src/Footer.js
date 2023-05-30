@@ -12,7 +12,7 @@ const socials = [ { src: facebook,  link: "https://www.facebook.com/" },
                 ]
 
 export function Footer(props) {
-    return <footer >
+    return <footer id="about">
         <img src={Logo_portrait} alt="Little Lemon Logo"/>
         <div className="contact">
             <h2>Contact</h2>
@@ -23,7 +23,7 @@ export function Footer(props) {
         <div className="social">
             <h2>Social Media Links</h2>
             <div className="social-links">
-                {socials.map(e => (<a href={e.link}>  <img src={e.src} alt="Social Media Icon" /> </a>))}
+                {socials.map((e, i) => (<a key={i} href={e.link}>  <img src={e.src} alt="Social Media Icon" /> </a>))}
             </div>
         </div>
 

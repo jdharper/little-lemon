@@ -1,3 +1,5 @@
+import { Nav } from './Nav.js'
+
 export function Header(props) {
-    return <header></header>
+    return <header><Nav/></header>
 }

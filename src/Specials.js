@@ -17,10 +17,10 @@ const specials = [
 
 
 export function Specials() {
-    return <section className="specials">
+    return <section className="specials" id="menu">
         <div className="specials-header">
-            <h1>This Weeks Specials!</h1>
-            <a href="#online-menu" role="button">Online Menu</a>
+            <h1>This Week&apos;s Specials!</h1>
+            <a href="/#menu" role="button">Online Menu</a>
         </div>
         <div className="card-block">
             { specials.map((s) => { return (<Card key={s.name} { ... s} />); }) }

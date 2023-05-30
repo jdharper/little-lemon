@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import hero_img from './assets/restaurantfood.jpg'
 
 export function Hero(props) {
-    return <section className="hero">
+    return <section className="hero" id="home">
         <div className="hero-left">
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>

@@ -1,7 +1,12 @@
 import { useState, useEffect, cloneElement } from "react";
 
 export function ConfirmedBooking() {
-   return <p>Your booking is confirmed.</p>
+   return <div className="confirm-booking">
+         <h1>Thank you</h1>
+         <h2>Your reservation is confirmed</h2>
+         <p>We sincerely appreciate your reservation for a table at The Little Lemon.</p>
+         <a href="/" role="button" style={{marginTop: "20px"}}>Home</a>
+      </div>
 }
 
 function Field(props) {
